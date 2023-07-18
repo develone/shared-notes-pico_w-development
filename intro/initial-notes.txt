@@ -1,6 +1,6 @@
 Revision Control provided with git & github.
-github provides pulblic and private repositories.
-pulblic repositories have an owner and can be shared with others.
+github provides public and private repositories.
+public repositories have an owner and can be shared with others.
 In my lab in my home I have several Raspberry Pi systems. Only 2
 systems pi4-27 & pi4-60 are used to push changes to github where others can find and download.
  
