@@ -1,8 +1,8 @@
 Revision Control provided with git & github.
-github provides pulbic and private repositories.
-Pulbic repositories have an owner and can be shared with others.
-In my lab in my home I have serveral Raspberry Pi systems. Only 2
-systems are used to push changes to github where others can find and download.
+github provides pulblic and private repositories.
+pulblic repositories have an owner and can be shared with others.
+In my lab in my home I have several Raspberry Pi systems. Only 2
+systems pi4-27 & pi4-60 are used to push changes to github where others can find and download.
  
 
 I am going to try and provide some background of just how rapid the Electronics has grown and the many opportunities today.  I would like name all
@@ -12,7 +12,7 @@ information.
 When I started in Electronics it 80% hardware & 20% software.  The were to series of chips 7400 & 4000.  This made AND, OR, EOR, NAND, counters,
 flip flops, decoders and many more.  Another tech at White Sands Missile Range WSMR Bobby Graves introduced me with a big yellow book from Texas
 Instruments TI https://en.wikipedia.org/wiki/7400-series_integrated_circuits.  One of the first computers that I built was http://www.decodesystems.com/cosmac/ with the help of Bob Stark
-at White Sands Missile Range. This was a major piece of work.  There were serveral chips that were wire wrapped together after a schematic was
+at White Sands Missile Range. This was a major piece of work.  There were several chips that were wire wrapped together after a schematic was
 drawn.
 
 If you only want to control a device without knowing what is going on under the hood the Pico_w & Pico are not the way to go.  
