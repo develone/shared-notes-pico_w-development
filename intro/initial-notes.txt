@@ -1,0 +1,64 @@
+Revision Control provided with git & github.
+github provides pulbic and private repositories.
+Pulbic repositories have an owner and can be shared with others.
+In my lab in my home I have serveral Raspberry Pi systems. Only 2
+systems are used to push changes to github where others can find and download.
+ 
+
+I am going to try and provide some background of just how rapid the Electronics has grown and the many opportunities today.  I would like name all
+that gave of their time to help me along the way.  In the same manner, if I can help in any way, feel free to ask and I will try to provide the best
+information.   
+ 
+When I started in Electronics it 80% hardware & 20% software.  The were to series of chips 7400 & 4000.  This made AND, OR, EOR, NAND, counters,
+flip flops, decoders and many more.  Another tech at White Sands Missile Range WSMR Bobby Graves introduced me with a big yellow book from Texas
+Instruments TI https://en.wikipedia.org/wiki/7400-series_integrated_circuits.  One of the first computers that I built was http://www.decodesystems.com/cosmac/ with the help of Bob Stark
+at White Sands Missile Range. This was a major piece of work.  There were serveral chips that were wire wrapped together after a schematic was
+drawn.
+
+If you only want to control a device without knowing what is going on under the hood the Pico_w & Pico are not the way to go.  
+Now if you want to learn how something works from the design to implementation then this a good place to start.
+
+The Raspberry Pi comes in various models Zero 2W is the latest cost model at $15.00 in store only at Micro Center in Indy & Houston.  
+There several other models RPi3B, and RPi4 which comes in 2Gb, 4Gb, and 8Gb.  There is also Pi400 which comes inside a keyboard
+this one is a 4G with 3 USB ports.  For code development
+If you have putty on window or other ssh program  try the following.
+
+ I find that the RPi is the best O/S. It provides all of the tools needed.  
+ 
+
+
+The Raspberry Pi OS provides a complete Libreoffice which is just like Office Word, Excel and PowerPoint.  I can make a 64 G mico sd with Raspberry OS. I will need your mailing address street zip  your SSID SSID password. On my systems I have several WiFi networks where I setup a WiFi like yours and test the broker which creates a publisher/scriber model, and compiler and other tools. This explains the process I use in creating a working system https://github.com/develone/my-projects-docs/blob/master/systems-64/doc-steps.pdf
+
+The RPi models and  Pico_W & Pico are ARM processors. Which are RISC which are found in cell phones and Apple computers.
+
+The compiler takes in C files and uses makefile created with cmake. This is the program arm-none-eabi-gcc which creates to important files ~/pico_w-mqtt/remote1/pico_w/wifi/freertos/iperf/ picow_freertos_iperf_server_mqtt.uf2 & picow_freertos_iperf_server_mqtt.elf.  In addition you get two additional files picow_freertos_iperf_server_mqtt.dis & picow_freertos_iperf_server_mqtt.elf.map.  The uf2 file is what  you paste after pressing the boot sel on the pico_w. As you learn other tools openocd which  connects to a RPi GPIO and SWD on the pico_w which  3 pins on the 
+
+The publisher scriber model used with Pico_W
+This starts the Broker
+mosquitto -c /etc/mosquitto/mosquitto.conf
+1689161831: mosquitto version 2.0.11 starting
+1689161831: Config loaded from /etc/mosquitto/mosquitto.conf.
+1689161831: Opening ipv4 listen socket on port 1883.
+1689161831: Opening ipv6 listen socket on port 1883.
+1689161831: mosquitto version 2.0.11 running
+1689161835: New connection from 192.168.1.159:55198 on port 1883.
+1689161835: New client connected from 192.168.1.159:55198 as remote5 (p2, c1, k10, u'testuser').
+1689161842: New connection from ::1:38046 on port 1883.
+1689161842: New client connected from ::1:38046 as auto-493D9141-6C86-782E-4C9D-11BDBEB77B85 (p2, c1, k60, u'testuser').
+1689161865: Client auto-493D9141-6C86-782E-4C9D-11BDBEB77B85 disconnected.
+1689162766: New connection from ::1:33092 on port 1883.
+1689162766: New client connected from ::1:33092 as auto-502A44A0-F401-8E1F-36D5-6C69C98F0BD2 (p2, c1, k60, u'testuser').
+1689162808: Client auto-502A44A0-F401-8E1F-36D5-6C69C98F0BD2 disconnected.
+
+This starts a client
+mosquitto_sub -t 'pico/status' -u 'testuser' -P 'password123'
+Onboard temperature = 34.16 C remote5
+Onboard temperature = 34.16 C remote5
+Onboard temperature = 34.16 C remote5
+Onboard temperature = 34.16 C remote5
+Onboard temperature = 34.16 C remote5
+
+Edward Vidal Jr. e-mail develone@sbcglobal.net 915-595-1613 my cell 915-346-1476.
+
+
+
