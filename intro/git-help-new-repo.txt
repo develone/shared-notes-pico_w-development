@@ -1,0 +1,41 @@
+You first download the repo.
+
+devel@pi4-27:~ $ git clone git@github.com:develone/shared-notes-pico_w-development.git
+Cloning into 'shared-notes-pico_w-development'...
+warning: You appear to have cloned an empty repository.
+
+devel@pi4-27:~ $ cd shared-notes-pico_w-development/
+
+With an editor mousepad, nano, geany or vi create a file.
+
+devel@pi4-27:~/shared-notes-pico_w-development $ mousepad intro/initial-notes.txt &
+
+devel@pi4-27:~/shared-notes-pico_w-development $ git add intro/initial-notes.txt
+
+devel@pi4-27:~/shared-notes-pico_w-development $ git commit intro/initial-notes.txt
+
+devel@pi4-27:~/shared-notes-pico_w-development $ git push
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (4/4), 2.30 KiB | 471.00 KiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0), pack-reused 0
+To github.com:develone/shared-notes-pico_w-development.git
+ * [new branch]      master -> master
+
+devel@pi4-3:~ $ git clone https://github.com/develone/shared-notes-pico_w-development.git
+Cloning into 'shared-notes-pico_w-development'...
+remote: Enumerating objects: 4, done.
+remote: Counting objects: 100% (4/4), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 4 (delta 0), reused 4 (delta 0), pack-reused 0
+Receiving objects: 100% (4/4), done.
+
+devel@pi4-3:~ $ cd shared-notes-pico_w-development/
+devel@pi4-3:~/shared-notes-pico_w-development $ git log
+commit 8a3ac98d83682affd25b9aa91bfdbd70c6530896 (HEAD -> master, origin/master, origin/HEAD)
+Author: Ed Vidal Jr <develone@sbcglobal.net>
+Date:   Tue Jul 18 06:51:51 2023 -0600
+
+    creating a file and adding to a repo.
