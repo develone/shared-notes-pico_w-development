@@ -8,7 +8,7 @@ git pull
 cd ~/rp2040-freertos-project
 git pull
 cd ~/
-cd Ultibo_projects
+cd Ultibo_Projects
 git pull
 cd ~/
 
