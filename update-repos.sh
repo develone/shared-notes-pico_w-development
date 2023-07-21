@@ -11,4 +11,6 @@ cd ~/
 cd Ultibo_Projects
 git pull
 cd ~/
-
+cd generate-vcd
+git pull
+cd ~/ 
