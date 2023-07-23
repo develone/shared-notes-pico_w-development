@@ -14,3 +14,6 @@ cd ~/
 cd generate-vcd
 git pull
 cd ~/ 
+openssl-teest
+git pull
+cd ~/
