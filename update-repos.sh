@@ -17,3 +17,6 @@ cd ~/
 cd openssl-teest
 git pull
 cd ~/
+cd raspberrypi-gpio
+git pull
+cd ~/
