@@ -20,7 +20,7 @@ cd ~/
 cd raspberrypi-gpio
 git pull
 cd ~/
-cd pico_w-valve-pcb
+cd kicad-project-1
 git pull
 cd ~/
 
