@@ -23,4 +23,7 @@ cd ~/
 cd kicad-project-1
 git pull
 cd ~/
-
+cd scripts-rpi
+git pull
+cd ~/
+ 
