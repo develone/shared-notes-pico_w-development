@@ -1,0 +1,115 @@
+The Raspberry Pi has several editors 
+	geany
+	mousepad
+	nano
+	vi
+Shells are used to execute commands.
+
+You need to have an account at github.
+
+This is the main repo https://github.com/develone/pico_w-mqtt used to program the 
+
+Raspberry Pi Pico_w.  I am currently working on the dev branch.
+
+"git clone https://github.com/develone/pico_w-mqtt.git -b dev" is used  
+to clone a repo when you do not own it. You can make changes locally but you can not
+push changes back to github.
+
+You need to fork the repo to your account.
+
+"git clone git@github.com:develone/pico_w-mqtt.git -b dev" is used to
+clone a repo when you own it.  Now you make changes to the files and push changes back
+to github.
+
+The repo https://github.com/develone/shared-notes-pico_w-development provides
+a file "update-repos.sh" which is used to pull any changes
+
+#!/bin/bash
+cd ~/pico_w-mqtt/
+git pull
+cd ~/shared-notes-pico_w-development/
+git pull
+cd  ~/my-projects-docs/
+git pull
+cd ~/rp2040-freertos-project
+git pull
+cd ~/
+cd Ultibo_Projects
+git pull
+cd ~/
+cd generate-vcd
+git pull
+cd ~/ 
+cd openssl-teest
+git pull
+cd ~/
+cd raspberrypi-gpio
+git pull
+cd ~/
+cd kicad-project-1
+git pull
+cd ~/
+cd scripts-rpi
+git pull
+cd ~/
+
+Linux commands you need a good understanding of the commands.
+
+
+ls lists files
+ls -la list files with additional information about the files size a last time it was
+modified.
+ps -a which process are working.
+ps -ax all process working on the system.
+rm -rf a folder
+rm -f a file
+
+less shows shows the contents of file.
+The source code is located pico_w-mqtt/pico_w/wifi/freertos/iperf/picow_freertos_iperf.c
+https://github.com/develone/pico_w-mqtt/blob/dev/pico_w/wifi/freertos/iperf/picow_freertos_iperf.c
+
+Line 177-178 are very important with the IP of thw mosquitto broker,
+
+/*192.168.1.212 0xc0a801d4 LWIP_MQTT_EXAMPLE_IPADDR_INIT pi4-50*/
+			#define LWIP_MQTT_EXAMPLE_IPADDR_INIT = IPADDR4_INIT(PP_HTONL(0xc0a801d4))
+for the Alamo code you need 
+/*192.168.0.25 0xc0a80019 LWIP_MQTT_EXAMPLE_IPADDR_INIT pi4-37*/
+			#define LWIP_MQTT_EXAMPLE_IPADDR_INIT = IPADDR4_INIT(PP_HTONL(0xc0a80019))
+
+line 816
+if (cyw43_arch_wifi_connect_timeout_ms(WIFI_SSID, WIFI_PASSWORD, CYW43_AUTH_WPA2_AES_PSK, 30000)) {
+
+The WIFI_PASSWORD needs to be hard coded. xxxxxxxxxx
+
+if (cyw43_arch_wifi_connect_timeout_ms(WIFI_SSID, "xxxxxxxxxx", CYW43_AUTH_WPA2_AES_PSK, 30000)) {
+
+These files will build 1 3 or 6 remotes
+https://github.com/develone/pico_w-mqtt/blob/dev/1remote.sh
+
+"WIFI_SSID" & "WIFI_PASSWORD" needs to be hard coded.b
+
+cmake -DPICO_BOARD=pico_w  -DHOSTNAME="remote5" -DWIFI_SSID="WIFI_SSID" -DWIFI_PASSWORD="WIFI_PASSWORD" -DFREERTOS_KERNEL_PATH:PATH=/home/devel/FreeRTOS-Kernel ..
+
+https://github.com/develone/pico_w-mqtt/blob/dev/
+
+https://github.com/develone/pico_w-mqtt/blob/dev/6remotes.sh
+
+Once the changes to 
+
+https://github.com/develone/pico_w-mqtt/blob/dev/pico_w/wifi/freertos/iperf/picow_freertos_iperf.c
+
+https://github.com/develone/pico_w-mqtt/blob/dev/
+or
+https://github.com/develone/pico_w-mqtt/blob/dev/3remotes.sh
+or 
+https://github.com/develone/pico_w-mqtt/blob/dev/6remotes.sh
+you can do 
+./1remote.sh
+./3remotes.sh
+./6remotes.sh
+
+If your testing only 1 remote after doing 1 of the above commands.
+
+cd remotex 
+make
+
