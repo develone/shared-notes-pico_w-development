@@ -1,0 +1,67 @@
+The IPs of various pico_w are also very important.
+for pi4-37 the will be 192.168.32.xx since they are connecting to Century Link6
+which is provided by pi400.
+Century Link6 is configured using hostapd and dnsmasq.
+Century Link6 is needed in the following files.
+1remote.sh, 3remotes.sh, and 6remotes.sh since it is WIFI_SSID.
+
+devel@pi4-37:~ $ ping -c 3 remote5
+PING remote5 (192.168.32.106) 56(84) bytes of data.
+64 bytes from remote5 (192.168.32.106): icmp_seq=1 ttl=255 time=34.4 ms
+64 bytes from remote5 (192.168.32.106): icmp_seq=2 ttl=255 time=28.7 ms
+64 bytes from remote5 (192.168.32.106): icmp_seq=3 ttl=255 time=24.5 ms
+
+--- remote5 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2003ms
+rtt min/avg/max/mdev = 24.470/29.192/34.417/4.076 ms
+
+devel@pi4-37:~ $ iperf -c remote5
+------------------------------------------------------------
+Client connecting to remote5, TCP port 5001
+TCP window size: 85.0 KByte (default)
+------------------------------------------------------------
+[  3] local 192.168.32.1 port 57818 connected with 192.168.32.106 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3] 0.0000-10.0385 sec  15.9 MBytes  13.3 Mbits/sec
+
+This command is used to indicate how good the wifi connection is with the pico_w
+and the pi400.
+
+devel@pi4-37:~/pico_w-mqtt $ ./pico-cmd-reset 'pi4-37'
+
+devel@pi4-37:~/pico_w-mqtt $ ./pi_tcp_tests/cli5
+Socket created successfully
+Connected with server successfully
+Starting FreeRTOS on core 0: ver 0.0.10 remote5 Connected. iperf server 192.168.32.106 4001  mqtt_ip = 0xe701a8c0 mqtt_port = 1883   08/09/2023 10:56:12 567890123456789012345678901234567890123012345678901234567890123456789012345678901234567890123456789012301234567890123456789012345678901234567890123456789012345678901230123456789012345678901234567890123456789012345678901234567890123�N �
+
+devel@pi4-37:~/pico_w-mqtt $ ./pi_tcp_tests/cli5
+Socket created successfully
+Connected with server successfully
+Starting FreeRTOS on core 0: ver 0.0.10 remote5 Connected. iperf server 192.168.32.106 4001  mqtt_ip = 0xe701a8c0 mqtt_port = 1883   08/09/2023 10:56:12  08/09/2023 10:56:43 Alarm Fired Sunday 8 September 10:57:12 2023  08/09/2023 10:57:14 890123456789012301234567890123456789012345678901234567890123456789012345678901230123456789012345678901234567890123456789012345678901234567890123����
+
+Note the difference in the commands above the first was executed about 10-15 sec
+after the  ./pico-cmd-reset 'pi4-37' The 2nd was a few sec later and displays 
+08/09/2023 10:56:43 Alarm Fired Sunday 8 September 10:57:12 2023
+
+For the following commands to work 
+devel@pi4-37:~/pico_w-mqtt $ ./pi_tcp_tests/cli1
+devel@pi4-37:~/pico_w-mqtt $ ./pi_tcp_tests/cli2
+devel@pi4-37:~/pico_w-mqtt $ ./pi_tcp_tests/cli3
+devel@pi4-37:~/pico_w-mqtt $ ./pi_tcp_tests/cli4
+devel@pi4-37:~/pico_w-mqtt $ ./pi_tcp_tests/cli5
+devel@pi4-37:~/pico_w-mqtt $ ./pi_tcp_tests/cli6
+
+The IPs of remote1, remote2, remote3, remote4, remote5 and remote6 need to be
+put in the file pico_w-mqtt/pi_tcp_tests/client.c and then the program 
+./build_cli.sh in pico_w-mqtt needs to be executed.
+
+You obtain the IPs of remote1, remote2, remote3, remote4, remote5 and remote6
+as the connect with the broker.
+
+
+
+
+
+
+cco
+ to be
