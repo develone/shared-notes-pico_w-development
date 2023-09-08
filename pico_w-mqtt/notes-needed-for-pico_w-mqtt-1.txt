@@ -1,0 +1,79 @@
+In my network in El Paso I have a pi4-37, a Raspberry Pi 3B+ wih a 7in. display, 
+the IP is 192.168.1.231.
+devel@pi4-37:~ $ ifconfig eth0
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.1.231  netmask 255.255.255.0  broadcast 192.168.1.255
+        inet6 2600:1700:69f0:42c0:bb7c:58dc:4d23:2a9  prefixlen 64  scopeid 0x0<global>
+        inet6 fe80::f749:56c8:dcef:6b0d  prefixlen 64  scopeid 0x20<link>
+        inet6 2600:1700:69f0:42c0::3c  prefixlen 128  scopeid 0x0<global>
+        ether b8:27:eb:07:c3:34  txqueuelen 1000  (Ethernet)
+        RX packets 8811  bytes 1072372 (1.0 MiB)
+        RX errors 0  dropped 1  overruns 0  frame 0
+        TX packets 964  bytes 110617 (108.0 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+In Alamo pi4-37 which is a pi400 has a different IP 192.168.0.25
+
+The model being used between the various pico_w is subscriber/publisher.
+
+https://cedalo.com/blog/mqtt-connection-beginners-guide/?utm_term=mqtt&utm_campaign=%5BSearch%5D-%5BMQTT-guide%5D-%5BHigh%5D-%5BUSA-CA%5D&utm_source=adwords&utm_medium=ppc&hsa_acc=8058532825&hsa_cam=18538845064&hsa_grp=145180491354&hsa_ad=626952213017&hsa_src=g&hsa_tgt=kwd-296477891479&hsa_kw=mqtt&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gclid=CjwKCAjwjOunBhB4EiwA94JWsFnxWVf4rIzRrBc2KjBvaX1lFjJgNboYirIlPfuohmYbyet-6ZD-KRoChIEQAvD_BwE
+
+Developed by IBM in 1999, MQTT, or MQ Telemetry Transport, is the lightweight 
+messaging protocol that enables communication between remote devices, 
+such as smartphones and web apps, sensors, and other systems. 
+
+In addition, one can see examples of successful MQTT implementation in 
+many industries — automotive, logistics, manufacturing, smart home, consumer 
+products, transportation, and many others.
+
+To perform data transfer between devices, MQTT runs over TCP/IP network protocol
+and uses the publish-subscribe pattern to send out messages. However, there is 
+much more to it than that. Keep reading this article to understand how to 
+establish the MQTT connection, learn more about the CONNECT and CONNACK 
+data packets, and what roles a client and a broker play in this process. 
+
+To start the broker on pi4-37 the command ./scripts-rpi/mosquitto/mos.sh
+
+devel@pi4-37:~ $ ./scripts-rpi/mosquitto/mos.sh 
+1694166200: mosquitto version 2.0.11 starting
+1694166200: Config loaded from /etc/mosquitto/mosquitto.conf.
+1694166200: Opening ipv4 listen socket on port 1883.
+1694166200: Opening ipv6 listen socket on port 1883.
+1694166200: mosquitto version 2.0.11 running
+
+If a pico_w was programmedd correctly it would connect with the broker 
+as shown below. 
+devel@pi4-37:~ $ 1694166299: New connection from 192.168.32.106:53281 on port 1883.
+1694166299: New client connected from 192.168.32.106:53281 as remote5 (p2, c1, k10, u'testuser').
+
+A 2nd command that is used to sse which pico_w are connected is
+devel@pi4-37:~ $ ./scripts-rpi/mosquitto/mos-q.sh 
+Onboard temperature = 34.16 C remote5 
+Onboard temperature = 34.16 C remote5 
+Onboard temperature = 34.16 C remote5 
+Onboard temperature = 34.16 C remote5 
+
+Note the difference when the command are run on pi4-3 which has 3 remotes. 
+
+devel@pi4-3:~ $ ./scripts-rpi/mosquitto/mos.sh 
+1694168057: mosquitto version 2.0.11 starting
+1694168057: Config loaded from /etc/mosquitto/mosquitto.conf.
+1694168057: Opening ipv4 listen socket on port 1883.
+1694168057: Opening ipv6 listen socket on port 1883.
+1694168057: mosquitto version 2.0.11 running
+devel@pi4-3:~ $ 1694168058: New connection from 192.168.12.108:51086 on port 1883.
+1694168058: New client connected from 192.168.12.108:51086 as remote9 (p2, c1, k10, u'testuser').
+1694168059: New connection from 192.168.12.106:57745 on port 1883.
+1694168059: New client connected from 192.168.12.106:57745 as remote7 (p2, c1, k10, u'testuser').
+1694168064: New connection from 192.168.12.120:52158 on port 1883.
+1694168064: New client connected from 192.168.12.120:52158 as remote8 (p2, c1, k10, u'testuser').
+1694168076: New connection from 192.168.12.106:57918 on port 1883.
+1694168076: Client remote7 already connected, closing old connection.
+1694168076: New client connected from 192.168.12.106:57918 as remote7 (p2, c1, k10, u'testuser').
+
+devel@pi4-3:~ $ ./scripts-rpi/mosquitto/mos-q.sh 
+Onboard temperature = 38.84 C remote8 
+Onboard temperature = 39.78 C remote9 
+Onboard temperature = 38.84 C remote7 
+Onboard temperature = 38.84 C remote8 
+Onboard temperature = 39.78 C remote9
+
