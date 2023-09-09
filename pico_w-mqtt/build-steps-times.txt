@@ -69,3 +69,76 @@ TCP window size: 85.0 KByte (default)
 [  3] local 192.168.1.212 port 54068 connected with 192.168.1.177 port 5001
 [ ID] Interval       Transfer     Bandwidth
 [  3] 0.0000-10.0369 sec  19.8 MBytes  16.5 Mbits/sec
+
+Goal:
+
+devel@pi4-50:~ $ ./scripts-rpi/mosquitto/mos-q.sh 
+Onboard temperature = 28.07 C remote1 
+Onboard temperature = 22.93 C remote6 
+Onboard temperature = 30.88 C remote4 
+Onboard temperature = 27.14 C remote2 
+Onboard temperature = 25.73 C remote3 
+Onboard temperature = 29.95 C remote5 
+devel@pi4-50:~/pico_w-mqtt $ iperf -c remote1 
+
+------------------------------------------------------------
+Client connecting to remote1, TCP port 5001
+TCP window size: 85.0 KByte (default)
+------------------------------------------------------------
+[  3] local 192.168.1.212 port 48982 connected with 192.168.1.160 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3] 0.0000-10.0177 sec  17.3 MBytes  14.4 Mbits/sec
+------------------------------------------------------------
+
+devel@pi4-50:~/pico_w-mqtt $ iperf -c remote2 
+
+
+Client connecting to remote2, TCP port 5001
+TCP window size: 85.0 KByte (default)
+------------------------------------------------------------
+[  3] local 192.168.1.212 port 55798 connected with 192.168.1.176 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3] 0.0000-10.0534 sec  19.4 MBytes  16.2 Mbits/sec
+------------------------------------------------------------
+
+devel@pi4-50:~/pico_w-mqtt $ iperf -c remote3 
+
+Client connecting to remote3, TCP port 5001
+TCP window size: 85.0 KByte (default)
+------------------------------------------------------------
+[  3] local 192.168.1.212 port 56870 connected with 192.168.1.178 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3] 0.0000-10.0027 sec  19.8 MBytes  16.6 Mbits/sec
+------------------------------------------------------------
+
+devel@pi4-50:~/pico_w-mqtt $ iperf -c remote4 
+
+Client connecting to remote4, TCP port 5001
+TCP window size: 85.0 KByte (default)
+------------------------------------------------------------
+[  3] local 192.168.1.212 port 53262 connected with 192.168.1.177 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3] 0.0000-10.0174 sec  19.6 MBytes  16.4 Mbits/sec
+------------------------------------------------------------
+
+devel@pi4-50:~/pico_w-mqtt $ iperf -c remote5 
+
+Client connecting to remote5, TCP port 5001
+
+TCP window size: 85.0 KByte (default)
+------------------------------------------------------------
+[  3] local 192.168.1.212 port 43834 connected with 192.168.1.159 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3] 0.0000-10.0635 sec  19.8 MBytes  16.5 Mbits/sec
+------------------------------------------------------------
+
+devel@pi4-50:~/pico_w-mqtt $ iperf -c remote6 
+
+Client connecting to remote6, TCP port 5001
+TCP window size: 85.0 KByte (default)
+------------------------------------------------------------
+[  3] local 192.168.1.212 port 42696 connected with 192.168.1.175 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3] 0.0000-10.0110 sec  19.8 MBytes  16.5 Mbits/sec
+
+
