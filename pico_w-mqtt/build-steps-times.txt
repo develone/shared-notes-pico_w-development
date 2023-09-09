@@ -1,0 +1,71 @@
+Fetch the repo git clone https://github.com/develone/pico_w-mqtt.git -b dev
+
+After editing the file pico_w-mqtt/6remotes.sh with the WIFI_SSID and WIFI_PASSWORD in 6 lines.
+
+After editing the file pico_w-mqtt/pico_w/wifi/freertos/iperf/picow_freertos_iperf.c 
+	with the hex IP of the MQTT broker line 178 
+	with the WIFI_PASSWORD line 816
+./6remotes.sh
+The follow files are created which can be used to program a pico_w with openocd using the elf file or with uf2 file.
+This process takes several minutes.
+devel@pi4-50:~/pico_w-mqtt $ ls -la remote1/pico_w/wifi/freertos/iperf/picow_freertos_iperf_server_mqtt.uf2 
+-rw-r--r-- 1 devel devel 732160 Sep  9 05:55 remote1/pico_w/wifi/freertos/iperf/picow_freertos_iperf_server_mqtt.uf2
+devel@pi4-50:~/pico_w-mqtt $ ls -la remote1/pico_w/wifi/freertos/iperf/picow_freertos_iperf_server_mqtt.elf
+-rwxr-xr-x 1 devel devel 549848 Sep  9 05:55 remote1/pico_w/wifi/freertos/iperf/picow_freertos_iperf_server_mqtt.elf
+devel@pi4-50:~/pico_w-mqtt $ ls -la remote2/pico_w/wifi/freertos/iperf/picow_freertos_iperf_server_mqtt.uf2 
+-rw-r--r-- 1 devel devel 732160 Sep  9 05:58 remote2/pico_w/wifi/freertos/iperf/picow_freertos_iperf_server_mqtt.uf2
+devel@pi4-50:~/pico_w-mqtt $ ls -la remote2/pico_w/wifi/freertos/iperf/picow_freertos_iperf_server_mqtt.elf
+-rwxr-xr-x 1 devel devel 549848 Sep  9 05:58 remote2/pico_w/wifi/freertos/iperf/picow_freertos_iperf_server_mqtt.elf
+devel@pi4-50:~/pico_w-mqtt $ ls -la remote3/pico_w/wifi/freertos/iperf/picow_freertos_iperf_server_mqtt.uf2
+-rw-r--r-- 1 devel devel 732160 Sep  9 06:02 remote3/pico_w/wifi/freertos/iperf/picow_freertos_iperf_server_mqtt.uf2
+devel@pi4-50:~/pico_w-mqtt $ ls -la remote3/pico_w/wifi/freertos/iperf/picow_freertos_iperf_server_mqtt.elf
+-rwxr-xr-x 1 devel devel 549848 Sep  9 06:02 remote3/pico_w/wifi/freertos/iperf/picow_freertos_iperf_server_mqtt.elf
+devel@pi4-50:~/pico_w-mqtt $ ls -la remote4/pico_w/wifi/freertos/iperf/picow_freertos_iperf_server_mqtt.uf2 
+-rw-r--r-- 1 devel devel 732160 Sep  9 06:05 remote4/pico_w/wifi/freertos/iperf/picow_freertos_iperf_server_mqtt.uf2
+devel@pi4-50:~/pico_w-mqtt $ ls -la remote4/pico_w/wifi/freertos/iperf/picow_freertos_iperf_server_mqtt.elf
+-rwxr-xr-x 1 devel devel 549848 Sep  9 06:05 remote4/pico_w/wifi/freertos/iperf/picow_freertos_iperf_server_mqtt.elf
+devel@pi4-50:~/pico_w-mqtt $ ls -la remote5/pico_w/wifi/freertos/iperf/picow_freertos_iperf_server_mqtt.uf2 
+-rw-r--r-- 1 devel devel 732160 Sep  9 06:09 remote5/pico_w/wifi/freertos/iperf/picow_freertos_iperf_server_mqtt.uf2
+devel@pi4-50:~/pico_w-mqtt $ ls -la remote5/pico_w/wifi/freertos/iperf/picow_freertos_iperf_server_mqtt.elf
+-rwxr-xr-x 1 devel devel 549848 Sep  9 06:09 remote5/pico_w/wifi/freertos/iperf/picow_freertos_iperf_server_mqtt.elf
+devel@pi4-50:~/pico_w-mqtt $ ls -la remote6/pico_w/wifi/freertos/iperf/picow_freertos_iperf_server_mqtt.uf2 
+-rw-r--r-- 1 devel devel 732160 Sep  9 06:12 remote6/pico_w/wifi/freertos/iperf/picow_freertos_iperf_server_mqtt.uf2
+devel@pi4-50:~/pico_w-mqtt $ ls -la remote6/pico_w/wifi/freertos/iperf/picow_freertos_iperf_server_mqtt.elf
+-rwxr-xr-x 1 devel devel 549848 Sep  9 06:12 remote6/pico_w/wifi/freertos/iperf/picow_freertos_iperf_server_mqtt.elf
+
+The mosquitto broker needs to be running with the command 
+devel@pi4-50:~ $ ./scripts-rpi/mosquitto/mos.sh 
+1694262915: mosquitto version 2.0.11 starting
+1694262915: Config loaded from /etc/mosquitto/mosquitto.conf.
+1694262915: Opening ipv4 listen socket on port 1883.
+1694262915: Opening ipv6 listen socket on port 1883.
+1694262915: mosquitto version 2.0.11 running
+devel@pi4-50:~ $ 1694262916: New connection from 192.168.1.177:52126 on port 1883.
+1694262916: New client connected from 192.168.1.177:52126 as remote4 (p2, c1, k10, u'testuser').
+
+As the remotes connect and start blinking noting the IP of each remote is very important since the IPs
+need to be edited in the file pico_w-mqtt/pi_tcp_test/client.c and  ./build_cli.sh needs to be executed in the 
+pico_w-mqtt folder creating cli1, cli2, cli3, cli4, cli5, and cli6 in pico_w-mqtt/pi_tcp_test/ folder.
+
+devel@pi4-50:~/pico_w-mqtt $ ./pi_tcp_tests/cli5
+Socket created successfully
+Connected with server successfully
+Starting FreeRTOS on core 0: ver 0.0.10 remote5 Connected. iperf server 192.168.1.159 4001  mqtt_ip = 0xd401a8c0 mqtt_port = 1883   09/09/2023 12:45:05  09/09/2023 12:45:36 Alarm Fired Sunday 9 September 12:46:05 2023  09/09/2023 12:46:07  09/09/2023 12:46:38  09/09/2023 12:47:09 5678901234567890123456789012345678901230123456789012345678901234567890123456789012345678901234567890123@���
+
+devel@pi4-50:~/pico_w-mqtt $ iperf -c remote5
+------------------------------------------------------------
+Client connecting to remote5, TCP port 5001
+TCP window size: 85.0 KByte (default)
+------------------------------------------------------------
+[  3] local 192.168.1.212 port 44130 connected with 192.168.1.159 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3] 0.0000-10.0143 sec  19.5 MBytes  16.3 Mbits/sec
+
+devel@pi4-50:~/pico_w-mqtt $ iperf -c remote4
+------------------------------------------------------------
+Client connecting to remote4, TCP port 5001
+TCP window size: 85.0 KByte (default)
+------------------------------------------------------------
+[  3] local 192.168.1.212 port 54068 connected with 192.168.1.177 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3] 0.0000-10.0369 sec  19.8 MBytes  16.5 Mbits/sec
