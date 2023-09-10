@@ -4,10 +4,20 @@ devel@pi4-37:~ $ sudo cat /var/lib/misc/dnsmasq.leases
 1694437630 28:cd:c1:08:17:22 192.168.32.117 remote3 *
 1694437706 28:cd:c1:08:17:24 192.168.32.119 remote4 *
 1694437538 28:cd:c1:01:35:6e 192.168.32.106 remote5 *
-
+192.168.32.102:53464 as remote1
+192.168.32.116:55057 as remote2
 192.168.32.117:52826 as remote3
 192.168.32.119:58528 as remote4
 192.168.32.106:64360 as remote5
+192.168.32.114:56672 as remote6
+
+devel@pi4-37:~ $ ./scripts-rpi/mosquitto/mos-q.sh 
+Onboard temperature = 30.88 C remote2 
+Onboard temperature = 28.07 C remote6 
+Onboard temperature = 32.76 C remote5 
+Onboard temperature = 29.48 C remote3 
+Onboard temperature = 31.35 C remote1 
+Onboard temperature = 32.29 C remote4 
 
 devel@pi4-37:~/test6/pico_w-mqtt $ ping -c 2 192.168.32.117
 PING 192.168.32.117 (192.168.32.117) 56(84) bytes of data.
