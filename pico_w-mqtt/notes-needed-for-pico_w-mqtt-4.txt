@@ -1,0 +1,19 @@
+As of ver 0.0.10 9 tasks
+
+These 3 headers provide needed informaion.
+
+#include "tcp_debug.h"
+#include "head_tail.h"
+#include "mqtt_extra.h"
+
+#define CLOSE_TASK_PRIORITY				( tskIDLE_PRIORITY + 10UL )
+#define OPEN_TASK_PRIORITY				( tskIDLE_PRIORITY + 9UL )
+#define ADC_TASK_PRIORITY				( tskIDLE_PRIORITY + 8UL )
+#define NTP_TASK_PRIORITY				( tskIDLE_PRIORITY + 5UL )
+#define WATCHDOG_TASK_PRIORITY			( tskIDLE_PRIORITY + 1UL )
+#define MQTT_TASK_PRIORITY				( tskIDLE_PRIORITY + 4UL )  
+#define SOCKET_TASK_PRIORITY			( tskIDLE_PRIORITY + 6UL )
+#define TEST_TASK_PRIORITY				( tskIDLE_PRIORITY + 2UL )
+#define BLINK_TASK_PRIORITY				( tskIDLE_PRIORITY + 3UL )
+
+main_task is where the WIFI connection is made. This task is started by method vLaunch called in main
