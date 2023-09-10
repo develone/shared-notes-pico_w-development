@@ -1,0 +1,127 @@
+6 renotes pi4-37	"Century Link6"			192.168.1.231 mqtt_ip = 0xe701a8c0 mqtt_port = 1883
+
+devel@pi4-37:~ $ sudo cat /var/lib/misc/dnsmasq.leases
+1694437630 28:cd:c1:08:17:22 192.168.32.117 remote3 *
+1694437706 28:cd:c1:08:17:24 192.168.32.119 remote4 *
+1694437538 28:cd:c1:01:35:6e 192.168.32.106 remote5 *
+
+192.168.32.117:52826 as remote3
+192.168.32.119:58528 as remote4
+192.168.32.106:64360 as remote5
+
+devel@pi4-37:~/test6/pico_w-mqtt $ ping -c 2 192.168.32.117
+PING 192.168.32.117 (192.168.32.117) 56(84) bytes of data.
+64 bytes from 192.168.32.117: icmp_seq=1 ttl=255 time=108 ms
+64 bytes from 192.168.32.117: icmp_seq=2 ttl=255 time=131 ms
+
+--- 192.168.32.117 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+rtt min/avg/max/mdev = 107.530/119.023/130.517/11.493 ms
+devel@pi4-37:~/test6/pico_w-mqtt $ ping -c 2 192.168.32.119
+PING 192.168.32.119 (192.168.32.119) 56(84) bytes of data.
+64 bytes from 192.168.32.119: icmp_seq=1 ttl=255 time=20.7 ms
+64 bytes from 192.168.32.119: icmp_seq=2 ttl=255 time=1.96 ms
+
+--- 192.168.32.119 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+rtt min/avg/max/mdev = 1.957/11.345/20.733/9.388 ms
+devel@pi4-37:~/test6/pico_w-mqtt $ ping -c 2 192.168.32.106
+PING 192.168.32.106 (192.168.32.106) 56(84) bytes of data.
+64 bytes from 192.168.32.106: icmp_seq=1 ttl=255 time=32.1 ms
+64 bytes from 192.168.32.106: icmp_seq=2 ttl=255 time=30.8 ms
+
+--- 192.168.32.106 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1001ms
+rtt min/avg/max/mdev = 30.761/31.405/32.050/0.644 ms
+devel@pi4-37:~/test6/pico_w-mqtt $ arp -a
+remote3 (192.168.32.117) at 28:cd:c1:08:17:22 [ether] on wlan0
+pi4-50.attlocal.net (192.168.1.212) at dc:a6:32:27:e2:20 [ether] on eth0
+remote4.attlocal.net (192.168.1.177) at <incomplete> on eth0
+remote1.attlocal.net (192.168.1.160) at 28:cd:c1:01:35:6a [ether] on eth0
+amazon-c9fc00e54.attlocal.net (192.168.1.67) at 0c:ee:99:6e:31:6f [ether] on eth0
+remote6.attlocal.net (192.168.1.175) at 28:cd:c1:08:17:1f [ether] on eth0
+dsldevice.attlocal.net (192.168.1.254) at cc:ab:2c:c7:5e:51 [ether] on eth0
+remote2.attlocal.net (192.168.1.176) at 28:cd:c1:08:17:21 [ether] on eth0
+remote5 (192.168.32.106) at 28:cd:c1:01:35:6e [ether] on wlan0
+remote4 (192.168.32.119) at 28:cd:c1:08:17:24 [ether] on wlan0
+remote3.attlocal.net (192.168.1.178) at <incomplete> on eth0
+
+Note:the open ports 4001 used for debug information and 5001 used for iperf on
+remote3, remote4, remote5
+
+devel@pi4-37:~/test6/pico_w-mqtt $ nmap 192.168.32.0/24
+Starting Nmap 7.80 ( https://nmap.org ) at 2023-09-10 09:09 MDT
+Nmap scan report for 192.168.32.1
+Host is up (0.0013s latency).
+Not shown: 994 closed ports
+PORT     STATE SERVICE
+22/tcp   open  ssh
+53/tcp   open  domain
+111/tcp  open  rpcbind
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+2049/tcp open  nfs
+
+Nmap scan report for remote5 (192.168.32.106)
+Host is up (0.0034s latency).
+Not shown: 998 closed ports
+PORT     STATE SERVICE
+4001/tcp open  newoak
+5001/tcp open  commplex-link
+
+Nmap scan report for remote3 (192.168.32.117)
+Host is up (0.0039s latency).
+Not shown: 998 closed ports
+PORT     STATE SERVICE
+4001/tcp open  newoak
+5001/tcp open  commplex-link
+
+Nmap scan report for remote4 (192.168.32.119)
+Host is up (0.0050s latency).
+Not shown: 998 closed ports
+PORT     STATE SERVICE
+4001/tcp open  newoak
+5001/tcp open  commplex-link
+
+Nmap done: 256 IP addresses (4 hosts up) scanned in 9.13 seconds
+
+6 renotes pi4-50	"ATTtpHTfPi"				192.168.1.212 mqtt_ip = 0xd401a8c0 mqtt_port = 1883
+
+192.168.1.160:60625 as remote1
+192.168.1.176:50814 as remote2
+192.168.1.175:54958 as remote6
+
+devel@pi4-37:~ $ ping -c 2 remote2
+PING remote2.attlocal.net (192.168.1.176) 56(84) bytes of data.
+64 bytes from remote2.attlocal.net (192.168.1.176): icmp_seq=1 ttl=255 time=50.4 ms
+64 bytes from remote2.attlocal.net (192.168.1.176): icmp_seq=2 ttl=255 time=277 ms
+
+--- remote2.attlocal.net ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1001ms
+rtt min/avg/max/mdev = 50.367/163.529/276.692/113.162 ms
+devel@pi4-37:~ $ ping -c 2 remote1
+PING remote1.attlocal.net (192.168.1.160) 56(84) bytes of data.
+64 bytes from remote1.attlocal.net (192.168.1.160): icmp_seq=1 ttl=255 time=185 ms
+64 bytes from remote1.attlocal.net (192.168.1.160): icmp_seq=2 ttl=255 time=177 ms
+
+--- remote1.attlocal.net ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+rtt min/avg/max/mdev = 177.444/181.410/185.377/3.966 ms
+devel@pi4-37:~ $ ping -c 2 remote6
+PING remote6.attlocal.net (192.168.1.175) 56(84) bytes of data.
+64 bytes from remote6.attlocal.net (192.168.1.175): icmp_seq=1 ttl=255 time=260 ms
+64 bytes from remote6.attlocal.net (192.168.1.175): icmp_seq=2 ttl=255 time=182 ms
+
+--- remote6.attlocal.net ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1001ms
+rtt min/avg/max/mdev = 181.733/221.057/260.382/39.324 ms
+devel@pi4-37:~ $ arp -a
+remote3 (192.168.32.117) at 28:cd:c1:08:17:22 [ether] on wlan0
+pi4-50.attlocal.net (192.168.1.212) at dc:a6:32:27:e2:20 [ether] on eth0
+remote6.attlocal.net (192.168.1.175) at 28:cd:c1:08:17:1f [ether] on eth0
+remote1.attlocal.net (192.168.1.160) at 28:cd:c1:01:35:6a [ether] on eth0
+amazon-c9fc00e54.attlocal.net (192.168.1.67) at 0c:ee:99:6e:31:6f [ether] on eth0
+remote4 (192.168.32.119) at 28:cd:c1:08:17:24 [ether] on wlan0
+remote2.attlocal.net (192.168.1.176) at 28:cd:c1:08:17:21 [ether] on eth0
+remote5 (192.168.32.106) at 28:cd:c1:01:35:6e [ether] on wlan0
+dsldevice.attlocal.net (192.168.1.254) at cc:ab:2c:c7:5e:51 [ether] on eth0
