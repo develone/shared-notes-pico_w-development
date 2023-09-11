@@ -1,0 +1,159 @@
+sudo cat /var/lib/misc/dnsmasq.leases
+
+sudo cat /var/lib/misc/dnsmasq.leases
+
+devel@pi4-37:~/openssl-teest $ cd ~/pico_w-mqtt
+
+devel@pi4-37:~/pico_w-mqtt $ gitk &
+
+git log
+
+commit 8f90647a82f130d509903e224458d9afd1285271 (HEAD -> dev, origin/dev)
+Author: Edward Vidal Jr <develone@sbcglobal.net>
+Date:   Fri Aug 18 05:40:29 2023 -0600
+
+    remote5 ver 0.0.10 for alamo
+
+devel@pi4-37:~/pico_w-mqtt $ git status | less
+On branch dev
+Your branch is up to date with 'origin/dev'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   1remote.sh
+        modified:   pi_tcp_tests/client.c
+        modified:   pico_w/wifi/freertos/iperf/picow_freertos_iperf.c
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        pi_tcp_tests/cli1
+        pi_tcp_tests/cli2
+        pi_tcp_tests/cli3
+        pi_tcp_tests/cli4
+        pi_tcp_tests/cli5
+        pi_tcp_tests/cli6
+        pico_w/wifi/freertos/iperf/picow_freertos_iperf.c.1
+        pico_w/wifi/freertos/iperf/picow_freertos_iperf.c.x
+        remote5
+
+devel@pi4-37:~/pico_w-mqtt $ git diff pi_tcp_tests/client.c
+
+devel@pi4-37:~/pico_w-mqtt $ ls
+1remote.sh                  pico-cmd-1      pico-cmd-open
+3remotes.sh                 pico-cmd-2      pico-cmd-reset
+6remotes.sh                 pico-cmd-3      pico_extras_import_optional.cmake
+additional-files.txt        pico-cmd-4      pico_sdk_import.cmake
+build_cli.sh                pico-cmd-5      pico_w
+cmake                       pico-cmd-6      pi_tcp_tests
+CMakeLists.txt              pico-cmd-7      pub-time
+doc                         pico-cmd-8      README.md
+example_auto_set_url.cmake  pico-cmd-9      remote5
+exe-ocd.sh                  pico-cmd-alarm  system
+LICENSE.TXT                 pico-cmd-C      uf2-file-for-alamo
+pico-cmd                    pico-cmd-close  wifi-alamo
+pico-cmd-0                  pico-cmd-F
+
+devel@pi4-37:~/pico_w-mqtt $ ls -la
+total 196
+drwxr-xr-x 11 devel devel  4096 Aug 14 05:27 .
+drwxr-xr-x 41 devel devel  4096 Sep 11 05:04 ..
+-rwxr-xr-x  1 devel devel   290 Aug 14 05:25 1remote.sh
+-rwxr-xr-x  1 devel devel   761 Aug 14 05:23 3remotes.sh
+-rwxr-xr-x  1 devel devel  1452 Aug 14 05:23 6remotes.sh
+-rw-r--r--  1 devel devel  7848 Aug 14 05:23 additional-files.txt
+-rwxr-xr-x  1 devel devel   251 Aug 14 05:23 build_cli.sh
+drwxr-xr-x  3 devel devel  4096 Aug 14 05:23 cmake
+-rw-r--r--  1 devel devel  1618 Aug 14 05:23 CMakeLists.txt
+drwxr-xr-x  2 devel devel  4096 Aug 19 06:50 doc
+-rw-r--r--  1 devel devel   297 Aug 14 05:23 example_auto_set_url.cmake
+-rwxr-xr-x  1 devel devel   169 Aug 14 05:23 exe-ocd.sh
+drwxr-xr-x  8 devel devel  4096 Sep 11 08:24 .git
+-rw-r--r--  1 devel devel    50 Aug 14 05:23 .gitignore
+-rw-r--r--  1 devel devel  1489 Aug 14 05:23 LICENSE.TXT
+-rwxr-xr-x  1 devel devel   355 Aug 14 05:23 pico-cmd
+-rwxr-xr-x  1 devel devel   494 Aug 14 05:23 pico-cmd-0
+-rwxr-xr-x  1 devel devel   494 Aug 14 05:23 pico-cmd-1
+-rwxr-xr-x  1 devel devel   494 Aug 14 05:23 pico-cmd-2
+-rwxr-xr-x  1 devel devel   494 Aug 14 05:23 pico-cmd-3
+-rwxr-xr-x  1 devel devel   494 Aug 14 05:23 pico-cmd-4
+-rwxr-xr-x  1 devel devel   494 Aug 14 05:23 pico-cmd-5
+-rwxr-xr-x  1 devel devel   494 Aug 14 05:23 pico-cmd-6
+-rwxr-xr-x  1 devel devel   494 Aug 14 05:23 pico-cmd-7
+-rwxr-xr-x  1 devel devel   494 Aug 14 05:23 pico-cmd-8
+-rwxr-xr-x  1 devel devel   494 Aug 14 05:23 pico-cmd-9
+-rwxr-xr-x  1 devel devel  1946 Aug 14 05:23 pico-cmd-alarm
+-rwxr-xr-x  1 devel devel  1946 Aug 14 05:23 pico-cmd-C
+-rwxr-xr-x  1 devel devel   355 Aug 14 05:23 pico-cmd-close
+-rwxr-xr-x  1 devel devel  1946 Aug 14 05:23 pico-cmd-F
+-rwxr-xr-x  1 devel devel   355 Aug 14 05:23 pico-cmd-open
+-rwxr-xr-x  1 devel devel  1946 Aug 14 05:23 pico-cmd-reset
+-rw-r--r--  1 devel devel  2810 Aug 14 05:23 pico_extras_import_optional.cmake
+-rw-r--r--  1 devel devel  3165 Aug 14 05:23 pico_sdk_import.cmake
+drwxr-xr-x  3 devel devel  4096 Aug 14 05:23 pico_w
+drwxr-xr-x  2 devel devel  4096 Sep 10 06:41 pi_tcp_tests
+-rwxr-xr-x  1 devel devel   235 Aug 14 05:23 pub-time
+-rw-r--r--  1 devel devel 24917 Aug 14 05:23 README.md
+drwxr-xr-x 10 devel devel  4096 Sep  3 13:35 remote5
+drwxr-xr-x  5 devel devel  4096 Aug 14 05:23 system
+drwxr-xr-x  2 devel devel  4096 Aug 19 06:50 uf2-file-for-alamo
+drwxr-xr-x  2 devel devel  4096 Aug 14 05:23 wifi-alamo
+
+devel@pi4-37:~/pico_w-mqtt $ cat exe-ocd.sh 
+#!/bin/bash
+openocd -f interface/raspberrypi-swd.cfg -f target/rp2040.cfg -c "program pico_w/wifi/freertos/iperf/picow_freertos_iperf_server_mqtt.elf verify reset exit"
+
+devel@pi4-37:~/pico_w-mqtt $ which openocd 
+/home/devel/local/openocd/bin/openocd
+
+devel@pi4-37:~/pico_w-mqtt $ env
+SHELL=/bin/bash
+LANGUAGE=en_US.UTF-8
+NO_AT_BRIDGE=1
+PWD=/home/devel/pico_w-mqtt
+PYENV_VIRTUALENV_INIT=1
+LOGNAME=devel
+XDG_SESSION_TYPE=tty
+MOTD_SHOWN=pam
+PICO_SDK_PATH=/home/devel/sdk/pico-sdk
+HOME=/home/devel
+LANG=en_US.UTF-8
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+SSH_CONNECTION=192.168.1.212 58126 192.168.1.231 22
+XDG_SESSION_CLASS=user
+TERM=xterm-256color
+USER=devel
+DISPLAY=localhost:10.0
+SHLVL=1
+XDG_SESSION_ID=4
+XDG_RUNTIME_DIR=/run/user/1000
+SSH_CLIENT=192.168.1.212 58126 22
+LC_ALL=en_US.UTF-8
+PATH=/home/devel/.pyenv/plugins/pyenv-virtualenv/shims:/home/devel/.pyenv/shims:/home/devel/.pyenv/bin:/home/devel/local/openocd/bin:/home/devel/qemu-6.2.0-rpios/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+SSH_TTY=/dev/pts/0
+TEXTDOMAIN=Linux-PAM
+OLDPWD=/home/devel/openssl-teest
+_=/usr/bin/env
+
+devel@pi4-37:~ $ ./scripts-rpi/mosquitto/mos.sh 
+1694442677: mosquitto version 2.0.11 starting
+1694442677: Config loaded from /etc/mosquitto/mosquitto.conf.
+1694442677: Opening ipv4 listen socket on port 1883.
+1694442677: Opening ipv6 listen socket on port 1883.
+1694442677: mosquitto version 2.0.11 running
+
+devel@pi4-50:~ $ ssh -Y pi4-37
+Linux pi4-37 6.1.21-v8+ #1642 SMP PREEMPT Mon Apr  3 17:24:16 BST 2023 aarch64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Mon Sep 11 05:04:56 2023 from 192.168.1.212
+
+devel@pi4-37:~ $ ./scripts-rpi/mosquitto/mos-q.sh
+
+
