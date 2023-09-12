@@ -1,0 +1,15 @@
+09/12/23
+total 79K 8 10K resistors
+33								36
+AGND-r1-r2-r3-r4-r5-r6-r7-r8-3V3(out)
+Testing adc_console.uf2 on a pico 
+pin 33 AGND
+GP26	pin 31 ADC0
+Step1	0x20e -> 0.423779 V
+Step2	0x403 -> 0.827417 V
+Step3	0x5e8 -> 1.218164 V
+Step4	0x7da -> 1.619385 V
+Step5	0x9d1 -> 2.024634 V
+Step6	0xbc6 -> 2.428272 V
+Step7	0xdec -> 2.871387 V
+Step8	0xfff -> 3.299194 V
