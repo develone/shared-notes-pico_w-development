@@ -13,3 +13,15 @@ Step5	0x9d1 -> 2.024634 V
 Step6	0xbc6 -> 2.428272 V
 Step7	0xdec -> 2.871387 V
 Step8	0xfff -> 3.299194 V
+1 R 2 B 3 Y pico uart 
+devel@pi4-37:~ $ minicom myusb0
+h
+Commands:
+c0, ... : Select ADC channel n
+s       : Sample once
+S       : Sample many
+w       : Wiggle pins
+c0
+s
+
+ 
