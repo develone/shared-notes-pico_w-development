@@ -1,7 +1,16 @@
 09/12/23
 total 79K 8 10K resistors
-33								36
-AGND-r1-r2-r3-r4-r5-r6-r7-r8-3V3(out)
+voltage divoder						
+pin 33 AGND
+-r1
+-r2
+-r3
+-r4		
+-r5
+-r6
+-r7
+-r8
+pin 36 3V3(out)
 Testing adc_console.uf2 on a pico 
 pin 33 AGND
 GP26	pin 31 ADC0
@@ -13,7 +22,7 @@ Step5	0x9d1 -> 2.024634 V
 Step6	0xbc6 -> 2.428272 V
 Step7	0xdec -> 2.871387 V
 Step8	0xfff -> 3.299194 V
-1 R 2 B 3 Y pico uart 
+GP0 pin 1 Red uart tx GP1 pin 2 Black uart rx GRD pin 3 Yellow  
 devel@pi4-37:~ $ minicom myusb0
 h
 Commands:
