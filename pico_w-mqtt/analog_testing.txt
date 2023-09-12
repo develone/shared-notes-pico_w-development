@@ -33,4 +33,35 @@ w       : Wiggle pins
 c0
 s
 
+devel@pi4-37:~/pico_w-mqtt $ ./pico-cmd-F 'pi4-37'
+T = 32.29 C 0x329 batt = 0.65 remote5 
+T = 32.29 C 0x329 batt = 0.65 remote5 
+T = 32.29 C 0x329 batt = 0.65 remote5 
+T = 32.29 C 0x329 batt = 0.65 remote5 
+T = 32.29 C 0x329 batt = 0.65 remote5 
+T = 32.29 C 0x329 batt = 0.65 remote5 
+T = 32.29 C 0x329 batt = 0.65 remote5 
+T = 32.29 C 0x329 batt = 0.65 remote5 
+T = 32.29 C 0x329 batt = 0.65 remote5 
+T = 90.12 F 0x366 batt = 0.70 remote5 
+T = 90.12 F 0x366 batt = 0.70 remote5 
+T = 90.12 F 0x366 batt = 0.70 remote5 
+T = 90.12 F 0x366 batt = 0.70 remote5 
+T = 90.12 F 0x366 batt = 0.70 remote5 
+T = 90.12 F 0x366 batt = 0.70 remote5 
+T = 90.12 F 0x366 batt = 0.70 remote5 
+T = 90.12 F 0x366 batt = 0.70 remote5 
+
+devel@pi4-37:~ $ ./scripts-rpi/mosquitto/mos-q.sh 
+T = 90.96 F 0xfff batt = 3.30 remote5 
+T = 90.96 F 0xfff batt = 3.30 remote5 
+T = 90.96 F 0xfff batt = 3.30 remote5 
+T = 90.96 F 0xfff batt = 3.30 remote5 
+T = 90.96 F 0xfff batt = 3.30 remote5 
+T = 90.96 F 0xfff batt = 3.30 remote5 
+T = 90.96 F 0xfff batt = 3.30 remote5 
+T = 90.96 F 0xfff batt = 3.30 remote5 
+T = 90.96 F 0xfff batt = 3.30 remote5 
+T = 90.96 F 0xfff batt = 3.30 remote5
+
  
