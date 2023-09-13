@@ -156,4 +156,37 @@ Last login: Mon Sep 11 05:04:56 2023 from 192.168.1.212
 
 devel@pi4-37:~ $ ./scripts-rpi/mosquitto/mos-q.sh
 
+devel@pi4-37:~ $ history
+ 1995  cd ~/
+ 1996  rsync -avl --delete test6 pi4-50:~/
+ 1997  cd test6/pico_w-mqtt/remote5
+ 1998  sudo apt-get update ; sudo apt-get full-upgrade -y
+ 1999  ./scripts-rpi/mosquitto/mos.sh 
+ 2000  less test6/pico_w-mqtt/pico_w/wifi/freertos/iperf/picow_freertos_iperf.c
+ 2001  ./scripts-rpi/mosquitto/mos-q.sh 
+ 2002  cd pico_w-mqtt
+ 2003  git log
+ 2004  cd remote5/
+ 2005  ls pico_w/wifi/freertos/iperf/
+ 2006  ls -la pico_w/wifi/freertos/iperf/
+ 2007  cd ~/
+ 2008  ls
+ 2009  cd pico_w-mqtt
+ 2010  git log
+ 2011  cd ~/test6/pico_w-mqtt/
+ 2012  git log
+ 2013  cd ~/
+ 2014  history 
+ 2015  ./scripts-rpi/mosquitto/mos-q.sh 
+ 2016  ps -a
+ 2017  history
+
+If you know the pid of cmd that was executed before !2015
+
+devel@pi4-37:~ $ ps -a
+    PID TTY          TIME CMD
+   1098 tty1     00:00:00 bash
+   2636 pts/0    00:00:02 mosquitto
+   3768 pts/0    00:00:00 ps
+
 
