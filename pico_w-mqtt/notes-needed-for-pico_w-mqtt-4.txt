@@ -1,4 +1,4 @@
-As of ver 0.0.10 9 tasks
+As of ver 0.0.11 10 tasks
 
 These 3 headers provide needed informaion.
 
@@ -6,6 +6,7 @@ These 3 headers provide needed informaion.
 #include "head_tail.h"
 #include "mqtt_extra.h"
 
+#define BATT_TASK_PRIORITY              ( tskIDLE_PRIORITY + 11UL )
 #define CLOSE_TASK_PRIORITY				( tskIDLE_PRIORITY + 10UL )
 #define OPEN_TASK_PRIORITY				( tskIDLE_PRIORITY + 9UL )
 #define ADC_TASK_PRIORITY				( tskIDLE_PRIORITY + 8UL )
