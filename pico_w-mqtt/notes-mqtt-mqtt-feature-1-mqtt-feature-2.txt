@@ -1,0 +1,25 @@
+To demo the mqtt-feature1 & mqtt-feature2
+The broker is running on pi4-37
+In addition the querry is running on pi4-37
+mqtt-feature1 the temperature is being displayed in C
+pi4-50 request a change to F
+mqtt-feature2 the temperature is being displayed in F
+pi4-50 request a change to C
+The pico_w can be controlled from any system that is on the same network as the broker.
+In this example pi4-50 192.168.1.212 and pi4-37 192.168.1.231.
+While the pico_w is on WIFI Century Link6 
+^Cdevel@pi4-37:~ $ ping remote5
+PING remote5 (192.168.32.106) 56(84) bytes of data.
+64 bytes from remote5 (192.168.32.106): icmp_seq=1 ttl=255 time=39.8 ms
+64 bytes from remote5 (192.168.32.106): icmp_seq=2 ttl=255 time=39.1 ms
+64 bytes from remote5 (192.168.32.106): icmp_seq=3 ttl=255 time=26.0 ms
+Since both pi4-27 and pico_w have the same WIFI Century Link6
+devel@pi4-27:~ $ iperf -c 192.168.32.106
+------------------------------------------------------------
+Client connecting to 192.168.32.106, TCP port 5001
+TCP window size: 85.0 KByte (default)
+------------------------------------------------------------
+[  3] local 192.168.32.107 port 37578 connected with 192.168.32.106 port 5001
+client await server close failed: Resource temporarily unavailable
+[ ID] Interval       Transfer     Bandwidth
+[  3] 0.0000-10.1835 sec   134 KBytes   108 Kbits/sec
