@@ -1,0 +1,124 @@
+09/17/23
+https://bytesofgigabytes.com/raspberrypi/mqtt-c-client-raspberry-pi/
+
+devel@pi4-50:~ $ git clone  https://github.com/develone/paho.mqtt.c.git
+Cloning into 'paho.mqtt.c'...
+remote: Enumerating objects: 12427, done.
+remote: Counting objects: 100% (2392/2392), done.
+remote: Compressing objects: 100% (634/634), done.
+remote: Total 12427 (delta 1816), reused 2213 (delta 1701), pack-reused 10035
+Receiving objects: 100% (12427/12427), 9.66 MiB | 10.55 MiB/s, done.
+Resolving deltas: 100% (8929/8929), done.
+devel@pi4-50:~ $ cd paho.mqtt.c/
+devel@pi4-50:~/paho.mqtt.c $ make
+mkdir -p build/output/samples
+mkdir -p build/output/test
+echo OSTYPE is Linux
+OSTYPE is Linux
+mkdir -p build
+sed -e "s/@CLIENT_VERSION@/1.3.12/g" -e "s/@BUILD_TIMESTAMP@/Sun 17 Sep 2023 06:50:42 AM MDT/g" src/VersionInfo.h.in > build/VersionInfo.h
+cc -g -fPIC  -D_GNU_SOURCE -Os -Wall -fvisibility=hidden -Ibuild -DPAHO_MQTT_EXPORTS=1 -o build/output/libpaho-mqtt3c.so.1.3 src/Base64.c src/Clients.c src/Heap.c src/LinkedList.c src/Log.c src/Messages.c src/MQTTClient.c src/MQTTPacket.c src/MQTTPacketOut.c src/MQTTPersistence.c src/MQTTPersistenceDefault.c src/MQTTProperties.c src/MQTTProtocolClient.c src/MQTTProtocolOut.c src/MQTTReasonCodes.c src/MQTTTime.c src/OsWrapper.c src/Proxy.c src/SHA1.c src/SocketBuffer.c src/Socket.c src/StackTrace.c src/Thread.c src/Tree.c src/utf-8.c src/WebSocket.c  -shared -Wl,-init,MQTTClient_init -Wl,--start-group -pthread -lanl -Wl,--end-group -Wl,-soname,libpaho-mqtt3c.so.1
+ln -s libpaho-mqtt3c.so.1.3  build/output/libpaho-mqtt3c.so.1
+ln -s libpaho-mqtt3c.so.1 build/output/libpaho-mqtt3c.so
+cc -g -fPIC  -D_GNU_SOURCE -Os -Wall -fvisibility=hidden -Ibuild -DPAHO_MQTT_EXPORTS=1 -o build/output/libpaho-mqtt3cs.so.1.3 src/Base64.c src/Clients.c src/Heap.c src/LinkedList.c src/Log.c src/Messages.c src/MQTTClient.c src/MQTTPacket.c src/MQTTPacketOut.c src/MQTTPersistence.c src/MQTTPersistenceDefault.c src/MQTTProperties.c src/MQTTProtocolClient.c src/MQTTProtocolOut.c src/MQTTReasonCodes.c src/MQTTTime.c src/OsWrapper.c src/Proxy.c src/SHA1.c src/SocketBuffer.c src/Socket.c src/SSLSocket.c src/StackTrace.c src/Thread.c src/Tree.c src/utf-8.c src/WebSocket.c -DOPENSSL  -shared -Wl,--start-group -pthread -lanl -ldl -lssl -lcrypto -Wl,--end-group -Wl,-init,MQTTClient_init -Wl,-soname,libpaho-mqtt3cs.so.1 -Wl,-no-whole-archive
+ln -s libpaho-mqtt3cs.so.1.3  build/output/libpaho-mqtt3cs.so.1
+ln -s libpaho-mqtt3cs.so.1 build/output/libpaho-mqtt3cs.so
+cc -g -fPIC  -D_GNU_SOURCE -Os -Wall -fvisibility=hidden -Ibuild -DPAHO_MQTT_EXPORTS=1 -o build/output/libpaho-mqtt3a.so.1.3 src/Base64.c src/Clients.c src/Heap.c src/LinkedList.c src/Log.c src/Messages.c src/MQTTAsync.c src/MQTTAsyncUtils.c src/MQTTPacket.c src/MQTTPacketOut.c src/MQTTPersistence.c src/MQTTPersistenceDefault.c src/MQTTProperties.c src/MQTTProtocolClient.c src/MQTTProtocolOut.c src/MQTTReasonCodes.c src/MQTTTime.c src/OsWrapper.c src/Proxy.c src/SHA1.c src/SocketBuffer.c src/Socket.c src/StackTrace.c src/Thread.c src/Tree.c src/utf-8.c src/WebSocket.c  -shared -Wl,-init,MQTTAsync_init -Wl,--start-group -pthread -lanl -Wl,--end-group -Wl,-soname,libpaho-mqtt3a.so.1
+ln -s libpaho-mqtt3a.so.1.3  build/output/libpaho-mqtt3a.so.1
+ln -s libpaho-mqtt3a.so.1 build/output/libpaho-mqtt3a.so
+cc -g -fPIC  -D_GNU_SOURCE -Os -Wall -fvisibility=hidden -Ibuild -DPAHO_MQTT_EXPORTS=1 -o build/output/libpaho-mqtt3as.so.1.3 src/Base64.c src/Clients.c src/Heap.c src/LinkedList.c src/Log.c src/Messages.c src/MQTTAsync.c src/MQTTAsyncUtils.c src/MQTTPacket.c src/MQTTPacketOut.c src/MQTTPersistence.c src/MQTTPersistenceDefault.c src/MQTTProperties.c src/MQTTProtocolClient.c src/MQTTProtocolOut.c src/MQTTReasonCodes.c src/MQTTTime.c src/OsWrapper.c src/Proxy.c src/SHA1.c src/SocketBuffer.c src/Socket.c src/SSLSocket.c src/StackTrace.c src/Thread.c src/Tree.c src/utf-8.c src/WebSocket.c -DOPENSSL  -shared -Wl,--start-group -pthread -lanl -ldl -lssl -lcrypto -Wl,--end-group -Wl,-init,MQTTAsync_init -Wl,-soname,libpaho-mqtt3as.so.1 -Wl,-no-whole-archive
+ln -s libpaho-mqtt3as.so.1.3  build/output/libpaho-mqtt3as.so.1
+ln -s libpaho-mqtt3as.so.1 build/output/libpaho-mqtt3as.so
+cc  -I src -Wl,--start-group -pthread -lanl -Wl,--end-group -L build/output -o build/output/paho_c_version -lpaho-mqtt3a src/MQTTVersion.c -ldl
+cc -o build/output/samples/MQTTClient_publish src/samples/MQTTClient_publish.c -lpaho-mqtt3cs  -I src -Wl,--start-group -pthread -lanl -lssl -lcrypto -Wl,--end-group -L build/output 
+cc -o build/output/samples/MQTTClient_publish_async src/samples/MQTTClient_publish_async.c -lpaho-mqtt3cs  -I src -Wl,--start-group -pthread -lanl -lssl -lcrypto -Wl,--end-group -L build/output 
+cc -o build/output/samples/MQTTClient_subscribe src/samples/MQTTClient_subscribe.c -lpaho-mqtt3cs  -I src -Wl,--start-group -pthread -lanl -lssl -lcrypto -Wl,--end-group -L build/output 
+cc -o build/output/samples/paho_cs_pub src/samples/paho_cs_pub.c -lpaho-mqtt3cs  -I src -Wl,--start-group -pthread -lanl -lssl -lcrypto -Wl,--end-group -L build/output src/samples/pubsub_opts.c
+cc -o build/output/samples/paho_cs_sub src/samples/paho_cs_sub.c -lpaho-mqtt3cs  -I src -Wl,--start-group -pthread -lanl -lssl -lcrypto -Wl,--end-group -L build/output src/samples/pubsub_opts.c
+cc -o build/output/samples/MQTTAsync_subscribe src/samples/MQTTAsync_subscribe.c -lpaho-mqtt3as  -I src -Wl,--start-group -pthread -lanl -lssl -lcrypto -Wl,--end-group -L build/output
+cc -o build/output/samples/MQTTAsync_publish src/samples/MQTTAsync_publish.c -lpaho-mqtt3as  -I src -Wl,--start-group -pthread -lanl -lssl -lcrypto -Wl,--end-group -L build/output
+cc -o build/output/samples/paho_c_pub src/samples/paho_c_pub.c -lpaho-mqtt3as  -I src -Wl,--start-group -pthread -lanl -lssl -lcrypto -Wl,--end-group -L build/output src/samples/pubsub_opts.c
+cc -o build/output/samples/paho_c_sub src/samples/paho_c_sub.c -lpaho-mqtt3as  -I src -Wl,--start-group -pthread -lanl -lssl -lcrypto -Wl,--end-group -L build/output src/samples/pubsub_opts.c
+cc -DNOSTACKTRACE -DNOLOG_MESSAGES src/Thread.c -g -o build/output/test/test1 src/../test/test1.c -lpaho-mqtt3c  -I src -Wl,--start-group -pthread -lanl -Wl,--end-group -L build/output
+cc -DNOSTACKTRACE -DNOLOG_MESSAGES src/Thread.c -g -o build/output/test/test15 src/../test/test15.c -lpaho-mqtt3c  -I src -Wl,--start-group -pthread -lanl -Wl,--end-group -L build/output
+cc -DNOSTACKTRACE -DNOLOG_MESSAGES src/Thread.c -g -o build/output/test/test2 src/../test/test2.c -lpaho-mqtt3c  -I src -Wl,--start-group -pthread -lanl -Wl,--end-group -L build/output
+cc -DNOSTACKTRACE -DNOLOG_MESSAGES src/Thread.c -g -o build/output/test/sync_client_test src/../test/sync_client_test.c -lpaho-mqtt3c  -I src -Wl,--start-group -pthread -lanl -Wl,--end-group -L build/output
+cc -DNOSTACKTRACE -DNOLOG_MESSAGES src/Thread.c -g -o build/output/test/test_mqtt4sync src/../test/test_mqtt4sync.c -lpaho-mqtt3c  -I src -Wl,--start-group -pthread -lanl -Wl,--end-group -L build/output
+cc -DNOSTACKTRACE -DNOLOG_MESSAGES src/Thread.c -g -o build/output/test/test10 src/../test/test10.c -lpaho-mqtt3c  -I src -Wl,--start-group -pthread -lanl -Wl,--end-group -L build/output
+cc -g -o build/output/test/test3 src/../test/test3.c -lpaho-mqtt3cs  -I src -Wl,--start-group -pthread -lanl -lssl -lcrypto -Wl,--end-group -L build/output
+cc -g -o build/output/test/test4 src/../test/test4.c -lpaho-mqtt3a  -I src -Wl,--start-group -pthread -lanl -Wl,--end-group -L build/output
+cc -g -o build/output/test/test45 src/../test/test45.c -lpaho-mqtt3a  -I src -Wl,--start-group -pthread -lanl -Wl,--end-group -L build/output
+cc -g -o build/output/test/test6 src/../test/test6.c -lpaho-mqtt3a  -I src -Wl,--start-group -pthread -lanl -Wl,--end-group -L build/output
+cc -g -o build/output/test/test9 src/../test/test9.c -lpaho-mqtt3a  -I src -Wl,--start-group -pthread -lanl -Wl,--end-group -L build/output
+cc -g -o build/output/test/test95 src/../test/test95.c -lpaho-mqtt3a  -I src -Wl,--start-group -pthread -lanl -Wl,--end-group -L build/output
+cc -g -o build/output/test/test_mqtt4async src/../test/test_mqtt4async.c -lpaho-mqtt3a  -I src -Wl,--start-group -pthread -lanl -Wl,--end-group -L build/output
+cc -g -o build/output/test/test11 src/../test/test11.c -lpaho-mqtt3a  -I src -Wl,--start-group -pthread -lanl -Wl,--end-group -L build/output
+cc -g -o build/output/test/test5 src/../test/test5.c -lpaho-mqtt3as  -I src -Wl,--start-group -pthread -lanl -lssl -lcrypto -Wl,--end-group -L build/output
+
+
+devel@pi4-50:~/paho.mqtt.c $ sudo make install
+mkdir -p build/output/samples
+mkdir -p build/output/test
+echo OSTYPE is Linux
+OSTYPE is Linux
+mkdir -p /usr/local/include
+install -m 644  build/output/libpaho-mqtt3c.so.1.3 /usr/local/lib
+install -m 644  build/output/libpaho-mqtt3cs.so.1.3 /usr/local/lib
+install -m 644  build/output/libpaho-mqtt3a.so.1.3 /usr/local/lib
+install -m 644  build/output/libpaho-mqtt3as.so.1.3 /usr/local/lib
+install  build/output/paho_c_version /usr/local/bin
+install  build/output/samples/paho_c_pub /usr/local/bin
+install  build/output/samples/paho_c_sub /usr/local/bin
+install  build/output/samples/paho_cs_pub /usr/local/bin
+install  build/output/samples/paho_cs_sub /usr/local/bin
+/sbin/ldconfig /usr/local/lib
+ln -s libpaho-mqtt3c.so.1 /usr/local/lib/libpaho-mqtt3c.so
+ln -s libpaho-mqtt3cs.so.1 /usr/local/lib/libpaho-mqtt3cs.so
+ln -s libpaho-mqtt3a.so.1 /usr/local/lib/libpaho-mqtt3a.so
+ln -s libpaho-mqtt3as.so.1 /usr/local/lib/libpaho-mqtt3as.so
+install -m 644 src/MQTTAsync.h /usr/local/include
+install -m 644 src/MQTTClient.h /usr/local/include
+install -m 644 src/MQTTClientPersistence.h /usr/local/include
+install -m 644 src/MQTTProperties.h /usr/local/include
+install -m 644 src/MQTTReasonCodes.h /usr/local/include
+install -m 644 src/MQTTSubscribeOpts.h /usr/local/include	
+install -m 644 src/MQTTExportDeclarations.h /usr/local/include
+install -m 644 doc/man/man1/paho_c_pub.1 /usr/local/share/man/man1
+install -m 644 doc/man/man1/paho_c_sub.1 /usr/local/share/man/man1
+install -m 644 doc/man/man1/paho_cs_pub.1 /usr/local/share/man/man1
+install -m 644 doc/man/man1/paho_cs_sub.1 /usr/local/share/man/man1
+
+devel@pi4-50:~/paho.mqtt.c $ ls /usr/local/bin/
+geek-timer.sh  paho_c_pub  paho_cs_pub  paho_cs_sub  paho_c_sub  paho_c_version
+
+
+devel@pi4-50:~ $ paho_c_sub -t 'pico/status' -u 'testuser' -P 'password123' -h 'pi4-37'
+T = 31.82 C 0x26c batt = 0.50 remote5
+T = 29.01 C 0x050 batt = 0.06 remote3
+T = 31.82 C 0x26c batt = 0.50 remote5
+T = 29.01 C 0x04f batt = 0.06 remote3
+T = 31.82 C 0x26c batt = 0.50 remote5
+T = 29.01 C 0x04f batt = 0.06 remote3
+T = 31.82 C 0x26c batt = 0.50 remote5
+T = 29.01 C 0x04f batt = 0.06 remote3
+
+These 2 cmds required a modification to /etc/mosquitto/mosquitto.conf 
+
+needed to edit /etc/mosquitto/mosquitto.conf
+
+line 522 
+
+allow_anonymous false ->  allow_anonymous true
+
+cc MQTTClient_subscribe.c -o MQTTSUB -lpaho-mqtt3c
+
+cc MQTTClient_publish.c -o MQTTPUB -lpaho-mqtt3c
+
+
+devel@pi4-30:~/paho.mqtt.c/src/samples $ paho_c_pub -t  "MQTT Examples" -u 'testuser' -P 'password123' -m 'hello-world'  -h 'pi4-37'
+devel@pi4-30:~/paho.mqtt.c/src/samples $ paho_c_pub -t  "MQTT Examples" -u 'testuser' -P 'password123' -m 'hello-world temp pi4-30'  -h 'pi4-37'
+devel@pi4-30:~/paho.mqtt.c/src/samples $ paho_c_sub -t  "MQTT Examples" -u 'testuser' -P 'password123'   -h 'pi4-37'
+hello-world
+hello-world
+hello-world
+hello-world this is a test
