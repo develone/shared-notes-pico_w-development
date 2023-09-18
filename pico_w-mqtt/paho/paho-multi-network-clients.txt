@@ -1,0 +1,21 @@
+Broker running on pi4-37
+Clients on pi4-3, pi4-20 and pi4-2.
+
+devel@pi4-3:~ $ paho_c_pub -t  "MQTT Examples" -u 'testuser' -P 'password123' -m 'hello-world pi4-3'  -h 'pi4-37'
+
+devel@pi4-2:~ $ paho_c_pub -t  "MQTT Examples" -u 'testuser' -P 'password123' -m 'hello-world pi4-2'  -h 'pi4-37'
+
+devel@pi4-20:~ $ paho_c_pub -t  "MQTT Examples" -u 'testuser' -P 'password123' -m 'hello-world pi4-20'  -h 'pi4-37'
+
+devel@pi4-37:~ $ 192.168.1.231
+
+devel@pi4-20:~ $  192.168.42.116
+
+devel@pi4-2:~ $  192.168.1.218
+
+devel@pi4-3:~ $  192.168.42.119
+
+devel@pi4-37:~ $ paho_c_sub -t  "MQTT Examples" -u 'testuser' -P 'password123' -h 'pi4-37'
+hello-world pi4-20
+hello-world pi4-3
+hello-world pi4-2
