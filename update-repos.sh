@@ -26,4 +26,14 @@ cd ~/
 cd scripts-rpi
 git pull
 cd ~/
+cd pico-playground
+git pull
+cd ~/
+cd pico-extras
+git pull
+cd ~/
+cd pico-project-generator
+git pull
+cd ~/
+
  
