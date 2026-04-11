@@ -1,0 +1,56 @@
+The pico2_w Universal asynchronous serial  uart port.
+ 
+devel@jaime1:~ $ sudo apt install minicom
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  lrzsz
+The following NEW packages will be installed:
+  lrzsz minicom
+0 upgraded, 2 newly installed, 0 to remove and 109 not upgraded.
+Need to get 365 kB of archives.
+After this operation, 1,577 kB of additional disk space will be used.
+Do you want to continue? [Y/n] Y
+Get:1 http://deb.debian.org/debian bookworm/main arm64 lrzsz arm64 0.12.21-10 [83.5 kB]
+Get:2 http://deb.debian.org/debian bookworm/main arm64 minicom arm64 2.8-2 [281 kB]
+Fetched 365 kB in 1s (434 kB/s)
+Selecting previously unselected package lrzsz.
+(Reading database ... 130148 files and directories currently installed.)
+Preparing to unpack .../lrzsz_0.12.21-10_arm64.deb ...
+Unpacking lrzsz (0.12.21-10) ...
+Selecting previously unselected package minicom.
+Preparing to unpack .../minicom_2.8-2_arm64.deb ...
+Unpacking minicom (2.8-2) ...
+Setting up minicom (2.8-2) ...
+Setting up lrzsz (0.12.21-10) ...
+Processing triggers for desktop-file-utils (0.26-1) ...
+Processing triggers for gnome-menus (3.36.0-1.1) ...
+Processing triggers for man-db (2.11.2-2) ...
+Processing triggers for mailcap (3.70+nmu1) ...
+
+devel@jaime1:~ $ sudo minicom -s
+
+ A -    Serial Device      : /dev/ttyUSB0 
+F - Hardware Flow Control : Yes  F - Hardware Flow Control : No 
+Save setup as..  
+Give name to save this configuration?  
+ myusb0
+Exit from Minicom 
+Leave Minicom? 
+Yes No
+
+devel@jaime1:~ $ minicom myusb0
+Welcome to minicom 2.8
+
+OPTIONS: I18n 
+Port /dev/ttyUSB0, 13:29:16
+
+Press CTRL-A Z for help on special keys
+
+Connecting to WiFi...
+Connected.
+
+Ready, running httpd at 192.168.32.107
+mdns host name PicoWDE03.local
+
