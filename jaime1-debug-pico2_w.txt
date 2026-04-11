@@ -54,3 +54,16 @@ Connected.
 Ready, running httpd at 192.168.32.107
 mdns host name PicoWDE03.local
 
+If the pico2_w connected to wifi
+
+devel@jaime1:~ $ wget http://192.168.32.107
+--2026-04-11 14:10:04--  http://192.168.32.107/
+Connecting to 192.168.32.107:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+Saving to: ‘index.html’
+
+index.html                                        [ <=>                                                                                            ]     461  --.-KB/s    in 0s      
+
+2026-04-11 14:10:05 (12.5 MB/s) - ‘index.html’ saved [461]
+
