@@ -1,0 +1,54 @@
+4/19/26
+    ap      100.99.255.113
+    pi3-37 100.100.59.27
+    vps-a35f6ef3    100.120.44.11
+    pi5-70      100.119.26.47   
+    
+devel@pi5-90:~ $ ssh -X ubuntu@100.120.44.11
+devel@pi5-90:~ $ ssh -X ubuntu@40.160.235.122
+
+XAUTHORITY=$HOME/.Xauthority firefox
+
+Out of home network to tailscale net 
+devel@pi5-90:~ $ ssh -Y 162.197.187.115
+
+In 2nd home network layer 
+devel@ap:~ $ ssh -Y 100.100.59.27
+
+devel@pi3-37:~ $ ssh -Y 192.168.12.140
+
+devel@wifiextender:~ $ ./scripts-rpi/route/wifi2jaime1.sh 
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+default         TMO-G4AR.lan    0.0.0.0         UG    303    0        0 wlan0
+192.168.12.0    0.0.0.0         255.255.255.0   U     303    0        0 wlan0
+192.168.42.0    0.0.0.0         255.255.255.0   U     202    0        0 eth0
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+default         TMO-G4AR.lan    0.0.0.0         UG    303    0        0 wlan0
+192.168.12.0    0.0.0.0         255.255.255.0   U     303    0        0 wlan0
+192.168.32.0    pi3-37          255.255.255.0   UG    0      0        0 eth0
+192.168.42.0    0.0.0.0         255.255.255.0   U     202    0        0 eth0
+
+In 3rd home network layer
+devel@wifiextender:~ $ ssh -Y 192.168.32.115
+
+devel@jaime1:~ $ curl 192.168.32.106
+<html>
+<head>
+    <title>Pico httpd example</title>
+</head>
+<body>
+    <h1>Pico httpd example</h1>
+    <p><img src="/img/rpi.png.gz"/></p>
+    <p>Hello from Pico</p>
+    <p>Uptime is 76168 seconds</p>
+    <p><a href="/?test">CGI handler test</a></p>
+    <p>
+        <form action="/led.cgi" method="post">
+            <input type="hidden" name="led_state" value="ON">
+            <input type="submit" value="Turn led ON">
+        </form>
+    </p>
+</body>
+</html>
